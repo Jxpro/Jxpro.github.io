@@ -1,0 +1,46 @@
+import{_ as l}from"./plugin-vue_export-helper-c27b6911.js";import{r as t,o as c,c as o,a as n,b as s,d as e,e as i}from"./app-b0f2cce9.js";const r={},d=i(`<h1 id="查看linux系统架构的命令" tabindex="-1"><a class="header-anchor" href="#查看linux系统架构的命令" aria-hidden="true">#</a> 查看Linux系统架构的命令</h1><p>查看linux系统是<strong>哪种架构</strong>：<code>AMD</code>、<code>ARM</code>、<code>x86</code>、<code>x86_64</code>、<code>pcc</code></p><h2 id="_1、查看内核版本" tabindex="-1"><a class="header-anchor" href="#_1、查看内核版本" aria-hidden="true">#</a> 1、查看内核版本</h2><ul><li><code>cat /proc/version</code></li><li><code>uname -a</code></li><li><code>uname -r</code></li></ul><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code>$ <span class="token function">cat</span> /proc/version
+Linux version <span class="token number">4.15</span>.0-161-generic <span class="token punctuation">(</span>buildd@lcy01-amd64-012<span class="token punctuation">)</span> <span class="token punctuation">(</span>gcc version <span class="token number">7.5</span>.0 <span class="token punctuation">(</span>Ubuntu <span class="token number">7.5</span>.0-3ubuntu1~18.04<span class="token punctuation">))</span> <span class="token comment">#169-Ubuntu SMP Fri Oct 15 13:41:54 UTC 2021</span>
+
+$ <span class="token function">uname</span> <span class="token parameter variable">-a</span>
+Linux iZwz91577x7sn2pgjejf5kZ <span class="token number">4.15</span>.0-161-generic <span class="token comment">#169-Ubuntu SMP Fri Oct 15 13:41:54 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux</span>
+
+$ <span class="token function">uname</span> <span class="token parameter variable">-r</span>
+<span class="token number">4.15</span>.0-161-generic
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_2、查看linux版本信息" tabindex="-1"><a class="header-anchor" href="#_2、查看linux版本信息" aria-hidden="true">#</a> 2、查看linux版本信息</h2><ul><li><code>lsb_release -a</code></li><li><code>cat /etc/issue</code></li></ul><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code>$ lsb_release <span class="token parameter variable">-a</span>
+LSB Version:	core-9.20170808ubuntu1-noarch:security-9.20170808ubuntu1-noarch
+Distributor ID:	Ubuntu
+Description:	Ubuntu <span class="token number">18.04</span>.6 LTS
+Release:	<span class="token number">18.04</span>
+Codename:	bionic
+
+$ <span class="token function">cat</span> /etc/issue
+Ubuntu <span class="token number">18.04</span>.6 LTS <span class="token punctuation">\\</span>n <span class="token punctuation">\\</span>l
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_3、查看linux是64位还是32位" tabindex="-1"><a class="header-anchor" href="#_3、查看linux是64位还是32位" aria-hidden="true">#</a> 3、查看linux是64位还是32位</h2><ul><li><code>getconf LONG_BIT</code></li><li><code>file /bin/ls</code></li></ul><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code>$ getconf LONG_BIT
+<span class="token number">64</span>
+
+$ <span class="token function">file</span> /bin/ls
+/bin/ls: ELF <span class="token number">64</span>-bit LSB shared object, x86-64, version <span class="token number">1</span> <span class="token punctuation">(</span>SYSV<span class="token punctuation">)</span>, dynamically linked, interpreter /lib64/l, <span class="token keyword">for</span> GNU/Linux <span class="token number">3.2</span>.0, BuildID<span class="token punctuation">[</span>sha1<span class="token punctuation">]</span><span class="token operator">=</span>9567f9a28e66f4d7ec4baf31cfbf68d0410f0ae6, stripped
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_4、直接查看系统的架构" tabindex="-1"><a class="header-anchor" href="#_4、直接查看系统的架构" aria-hidden="true">#</a> 4、直接查看系统的架构</h2><ul><li><code>dpkg --print-architecture</code></li><li><code>arch</code></li><li><code>file /lib/systemd/systemd</code></li></ul><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code>$ dpkg --print-architecture
+amd64
+
+$ arch
+x86_64
+
+$ <span class="token function">file</span> /lib/systemd/systemd
+/lib/systemd/systemd: ELF <span class="token number">64</span>-bit LSB shared object, x86-64, version <span class="token number">1</span> <span class="token punctuation">(</span>SYSV<span class="token punctuation">)</span>, dynamically linked, interpreter /lib64/l, <span class="token keyword">for</span> GNU/Linux <span class="token number">3.2</span>.0, BuildID<span class="token punctuation">[</span>sha1<span class="token punctuation">]</span><span class="token operator">=</span>cb01338bc2dce40f2dec56c8a2c89a7dac28d512, stripped
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,14),p={href:"https://blog.csdn.net/wf19930209/article/details/79536506",target:"_blank",rel:"noopener noreferrer"},u=n("h2",{id:"_5-查看mint系统对应的ubuntu系统",tabindex:"-1"},[n("a",{class:"header-anchor",href:"#_5-查看mint系统对应的ubuntu系统","aria-hidden":"true"},"#"),s(" 5 查看Mint系统对应的Ubuntu系统")],-1),b={href:"https://zhuanlan.zhihu.com/p/83166352",target:"_blank",rel:"noopener noreferrer"},v=i(`<p>使用<code>cat /etc/os-release</code>命令也可以获取到 Ubuntu 代号</p><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token function">cat</span> /etc/os-release
+
+<span class="token comment"># 输出</span>
+<span class="token assign-left variable">NAME</span><span class="token operator">=</span><span class="token string">&quot;Ubuntu&quot;</span>
+<span class="token assign-left variable">VERSION</span><span class="token operator">=</span><span class="token string">&quot;18.04.6 LTS (Bionic Beaver)&quot;</span>
+<span class="token assign-left variable">ID</span><span class="token operator">=</span>ubuntu
+<span class="token assign-left variable">ID_LIKE</span><span class="token operator">=</span>debian
+<span class="token assign-left variable">PRETTY_NAME</span><span class="token operator">=</span><span class="token string">&quot;Ubuntu 18.04.6 LTS&quot;</span>
+<span class="token assign-left variable">VERSION_ID</span><span class="token operator">=</span><span class="token string">&quot;18.04&quot;</span>
+<span class="token assign-left variable">HOME_URL</span><span class="token operator">=</span><span class="token string">&quot;https://www.ubuntu.com/&quot;</span>
+<span class="token assign-left variable">SUPPORT_URL</span><span class="token operator">=</span><span class="token string">&quot;https://help.ubuntu.com/&quot;</span>
+<span class="token assign-left variable">BUG_REPORT_URL</span><span class="token operator">=</span><span class="token string">&quot;https://bugs.launchpad.net/ubuntu/&quot;</span>
+<span class="token assign-left variable">PRIVACY_POLICY_URL</span><span class="token operator">=</span><span class="token string">&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy-policy&quot;</span>
+<span class="token assign-left variable">VERSION_CODENAME</span><span class="token operator">=</span>bionic
+<span class="token assign-left variable">UBUNTU_CODENAME</span><span class="token operator">=</span>bionic
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>注意：</p><blockquote><p>x86_64，x64，AMD64基本上是同一个东西</p></blockquote><ul><li><code>x86</code>是<code>intel</code>开发的一种32位指令集</li><li><code>x84_64</code>是CPU迈向64位的时候</li><li>x86_64是一种64位的指令集，x86_64是x86指令的超集，在x86上可以运行的程序，在x86_64上也可以运行，<code>x86_64</code>是AMD发明的，也叫<code>AMD64</code></li></ul><p>现在用的intel/amd的桌面级CPU基本上都是x86_64，与之相对的<code>arm</code>、<code>pcc</code>等都不是<code>x86_64</code></p>`,6);function m(k,h){const a=t("ExternalLinkIcon");return c(),o("div",null,[d,n("p",null,[n("a",p,[s("关于CPU架构是x86、x86_64、amd64的叫法区别"),e(a)])]),u,n("p",null,[n("a",b,[s("参考"),e(a)])]),v])}const x=l(r,[["render",m],["__file","architecture.html.vue"]]);export{x as default};
